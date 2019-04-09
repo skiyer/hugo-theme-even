@@ -126,6 +126,19 @@
 </script>
 {{- end }}
 
+<!-- pangu js -->
+<script src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js"></script>
+<script>
+  pangu.spacingElementById('main');
+  pangu.spacingElementByClassName('comment');
+  pangu.spacingElementByTagName('p');
+
+  document.addEventListener('DOMContentLoaded', () => {
+    // listen to any DOM change and automatically perform spacing via MutationObserver()
+    pangu.autoSpacingPage();
+  });
+</script>
+
 <!-- custom js -->
 {{ range .Site.Params.customJS -}}
   <script src="{{ "/js/" | relURL }}{{ . }}"></script>
